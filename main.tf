@@ -4,10 +4,12 @@ provider "aws" {
 
 resource "aws_instance" "name" {
 
-  ami           = "ami-07860a2d7eb515d9a"
+  ami           = "ami-068c0051b15cdb816
+Publish Date
+"
   instance_type = "t3.micro"
 
   tags = {
-    Name = "new server"
+    Name = "new server- jenkins"
   }
 }
