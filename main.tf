@@ -7,7 +7,7 @@ resource "aws_instance" "name" {
   ami           = "ami-068c0051b15cdb816"
   instance_type = "t3.micro"
 
-  tags = {
-    Name = "new server- jenkins"
+lifecycle {
+    prevent_destroy = true
   }
 }
