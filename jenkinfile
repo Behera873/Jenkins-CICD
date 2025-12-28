@@ -2,24 +2,27 @@ pipeline {
     agent any
 
     stages {
+        stage('clean workspace') {
+            steps {
+                deleteDir()
+            }
+        }
         stage('git clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/Behera873/Jenkins-CICD'
+                git branch: 'main', url: 'https://github.com/Behera873/Jenkins-CICD.git'
             }
         }
-        
-        stage('terraform init') {
+        stage('init terraform') {
             steps {
-                sh 'terraform init'
+                sh 'terraform init'  
             }
         }
-        stage('terraform plan') {
+        stage('plan terraform') {
             steps {
                 sh 'terraform plan'
             }
         }
-        
-         stage('terraform apply/destroy') {
+        stage('apply/destroy terraform') {
             steps {
                 sh "terraform ${params.Action} -auto-approve"
             }
