@@ -7,7 +7,7 @@ resource "aws_instance" "name" {
   ami           = "ami-068c0051b15cdb816"
   instance_type = "t3.micro"
 
-lifecycle {
-    prevent_destroy = true
+tags =  {
+    name= "Subh"
   }
 }
